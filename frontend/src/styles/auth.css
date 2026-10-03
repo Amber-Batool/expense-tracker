@@ -1,0 +1,358 @@
+.auth-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+
+/* @media (max-width: 960px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+  .auth-visual {
+    display: none;
+  }
+} */
+
+
+
+
+
+
+
+
+
+@media (max-width: 960px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Green panel becomes a short brand banner instead of a full illustration */
+  .auth-visual {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    padding-top: calc(16px + env(safe-area-inset-top));
+    min-height: unset;
+    height: auto;
+    justify-content: flex-start;
+  }
+
+  /* Everything except the brand mark/name gets dropped on small screens —
+     it's what was making the green area tall */
+  .auth-orb,
+  .auth-visual-copy,
+  .auth-stat-row,
+  .auth-footer-note {
+    display: none;
+  }
+
+  .auth-brand {
+    font-size: 1.05rem;
+  }
+
+  .auth-brand-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-form-panel {
+    padding: 28px 18px 36px;
+    align-items: flex-start;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   Left visual panel
+   ========================================================================== */
+
+.auth-visual {
+  position: relative;
+  background: linear-gradient(160deg, #0A4E36 0%, #0E6B49 55%, #0F7E56 100%);
+  color: #fff;
+  padding: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Two slow-drifting orbs: the only unprompted motion on this screen */
+.auth-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orb-one {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.11) 0%, transparent 70%);
+  top: -170px;
+  right: -150px;
+}
+
+.orb-two {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(35, 194, 133, 0.16) 0%, transparent 70%);
+  bottom: -130px;
+  left: -110px;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.auth-visual-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 440px;
+}
+
+.auth-visual-copy h1 {
+  color: #fff;
+  font-size: clamp(1.9rem, 3.2vw, 2.45rem);
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 16px;
+}
+
+.auth-visual-copy p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.01rem;
+  line-height: 1.6;
+  max-width: 46ch;
+}
+
+.auth-stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 38px;
+  flex-wrap: wrap;
+}
+
+.auth-stat-row .stat-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.auth-stat-row .stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.auth-footer-note {
+  position: relative;
+  z-index: 1;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ==========================================================================
+   Right form panel
+   ========================================================================== */
+
+.auth-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: var(--bg);
+}
+
+@media (max-width: 480px) {
+  .auth-form-panel {
+    padding: 32px 18px;
+    align-items: flex-start;
+  }
+}
+
+.auth-form-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form-card h2 {
+  font-size: clamp(1.5rem, 5vw, 1.8rem);
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 7px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  font-size: 0.96rem;
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-tint);
+}
+
+.form-group input[aria-invalid='true'] {
+  border-color: var(--coral);
+}
+
+.form-group input::placeholder {
+  color: #B5C4BC;
+}
+
+/* The amount field brings its own border, so strip the inner one */
+.amount-input input:focus {
+  box-shadow: none;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 46px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+  padding: 4px;
+}
+
+.password-toggle:hover {
+  color: var(--primary);
+}
+
+.strength-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 9px;
+}
+
+.strength-track {
+  flex: 1;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.strength-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--coral);
+}
+
+.strength-fill.level-2 {
+  background: var(--gold);
+}
+.strength-fill.level-3 {
+  background: var(--primary);
+}
+.strength-fill.level-4 {
+  background: var(--mint);
+}
+
+.strength-label {
+  font-size: 0.76rem;
+  color: var(--muted);
+  min-width: 42px;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+}
+
+.auth-switch-line {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.auth-switch-line a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.auth-switch-line a:hover {
+  text-decoration: underline;
+}
+
+.auth-error {
+  background: var(--coral-light);
+  color: #C6432E;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  font-weight: 500;
+  overflow: hidden;
+}

@@ -1,0 +1,52 @@
+bash
+
+cat << 'EOF'
+# ---- Backend ----
+backend/.env
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+**/__pycache__/
+*.pyc
+
+# ---- Frontend ----
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.production
+
+# ---- Root level venv (agar yahan bhi bani hai) ----
+.venv/
+venv/
+
+# ---- Editor / OS ----
+.vscode/
+.DS_Store
+Thumbs.db
+EOF
+Output
+
+# ---- Backend ----
+backend/.env
+backend/venv/
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+**/__pycache__/
+*.pyc
+
+# ---- Frontend ----
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.production
+
+# ---- Root level venv (agar yahan bhi bani hai) ----
+.venv/
+venv/
+
+# ---- Editor / OS ----
+.vscode/
+.DS_Store
+Thumbs.db

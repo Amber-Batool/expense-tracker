@@ -1,0 +1,562 @@
+/* ==========================================================================
+   Mobile header (hidden on wide screens, where the sidebar rail is visible)
+   ========================================================================== */
+
+.mobile-header {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .mobile-header {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 45;
+    background: var(--primary-dark);
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .mobile-header-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px 10px;
+    color: #fff;
+  }
+
+  .menu-button {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .menu-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .mobile-header-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .mobile-header-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--mint);
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  /* Horizontal scroll rail: the fast way to switch pages on a phone */
+  .nav-rail {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 0 16px 12px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: 16px;
+  }
+
+  .nav-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-chip {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 15px;
+    border-radius: var(--radius-pill);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.62);
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.15s ease;
+  }
+
+  .nav-chip svg {
+    font-size: 1rem;
+  }
+
+  .nav-chip.active {
+    color: var(--primary-dark);
+  }
+
+  .nav-chip-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-pill);
+    background: #fff;
+    z-index: -1;
+  }
+}
+
+/* ==========================================================================
+   Profile
+   ========================================================================== */
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-avatar-lg {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  min-width: 0;
+}
+
+.profile-info h2 {
+  font-size: 1.25rem;
+  margin-bottom: 3px;
+  overflow-wrap: anywhere;
+}
+
+.profile-info p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.profile-currency-tag {
+  display: inline-block;
+  margin-top: 9px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Stat tiles
+   ========================================================================== */
+
+.stat-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-tile-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 880px) {
+  .stat-tile-grid,
+  .stat-tile-grid.four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .stat-tile-grid,
+  .stat-tile-grid.four {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-tile {
+  padding: 18px;
+}
+
+.stat-tile-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.stat-tile-value {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.analytics-chart-panel {
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 520px) {
+  .analytics-chart-panel {
+    padding: 18px 12px;
+  }
+}
+
+/* ==========================================================================
+   Insights
+   ========================================================================== */
+
+.insights-panel {
+  padding: 24px 22px 20px;
+}
+
+@media (max-width: 520px) {
+  .insights-panel {
+    padding: 18px 14px 16px;
+  }
+}
+
+.insights-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.insights-spark {
+  display: inline-flex;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+.health-block {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 560px) {
+  .health-block {
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+  }
+}
+
+.health-ring {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.health-ring-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.health-score {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.health-grade {
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.health-bars {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.health-bar-row {
+  display: grid;
+  grid-template-columns: 118px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 400px) {
+  .health-bar-row {
+    grid-template-columns: 96px 1fr 40px;
+    gap: 7px;
+    font-size: 0.75rem;
+  }
+}
+
+.health-bar-label {
+  color: var(--ink-soft);
+}
+
+.health-bar-track {
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.health-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--primary);
+}
+
+.health-bar-points {
+  color: var(--muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.insight-card {
+  display: flex;
+  gap: 13px;
+  padding: 15px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  /* The left edge carries the severity, so the card itself stays quiet */
+  border-left: 3px solid var(--muted);
+}
+
+.insight-card h4 {
+  font-size: 0.92rem;
+  margin-bottom: 4px;
+}
+
+.insight-card p {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  max-width: 68ch;
+}
+
+.insight-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.severity-alert {
+  border-left-color: var(--coral);
+}
+.severity-alert .insight-icon {
+  background: var(--coral-light);
+  color: var(--coral);
+}
+
+.severity-watch {
+  border-left-color: var(--gold);
+}
+.severity-watch .insight-icon {
+  background: var(--gold-light);
+  color: #B07C14;
+}
+
+.severity-good {
+  border-left-color: var(--mint);
+}
+.severity-good .insight-icon {
+  background: var(--mint-light);
+  color: #128257;
+}
+
+.severity-info {
+  border-left-color: var(--primary);
+}
+.severity-info .insight-icon {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.forecast-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #0E6B49 0%, #0A4E36 100%);
+  color: #fff;
+}
+
+.forecast-label {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.forecast-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.forecast-range {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 24ch;
+}
+
+.block-title {
+  font-size: 0.92rem;
+  margin: 24px 0 12px;
+}
+
+.budget-row {
+  display: grid;
+  grid-template-columns: 110px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 520px) {
+  .budget-row {
+    grid-template-columns: 84px 1fr auto;
+    gap: 8px;
+    font-size: 0.79rem;
+  }
+}
+
+.budget-category {
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.budget-track {
+  height: 7px;
+  border-radius: var(--radius-pill);
+  background: var(--border);
+  overflow: hidden;
+}
+
+.budget-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+}
+
+.budget-amounts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+
+.budget-amounts strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.budget-amounts em {
+  font-style: normal;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.recurring-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.recurring-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.recurring-item:last-child {
+  border-bottom: none;
+}
+
+.recurring-title {
+  font-size: 0.89rem;
+  font-weight: 600;
+}
+
+.recurring-meta {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.recurring-amount {
+  text-align: right;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.recurring-amount span {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
